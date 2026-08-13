@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchitectureRouteImport } from './routes/architecture'
+import { Route as AuditRouteImport } from './routes/audit'
 import { Route as DataProtectionRouteImport } from './routes/data-protection'
 import { Route as LibraryRouteImport } from './routes/library'
 import { Route as PolicyConsistencyRouteImport } from './routes/policy-consistency'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const ArchitectureRoute = ArchitectureRouteImport.update({
   id: '/architecture',
   path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DataProtectionRoute = DataProtectionRouteImport.update({
@@ -68,6 +74,7 @@ const ToolSafetyRoute = ToolSafetyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/architecture': typeof ArchitectureRoute
+  '/audit': typeof AuditRoute
   '/data-protection': typeof DataProtectionRoute
   '/library': typeof LibraryRoute
   '/policy-consistency': typeof PolicyConsistencyRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/architecture': typeof ArchitectureRoute
+  '/audit': typeof AuditRoute
   '/data-protection': typeof DataProtectionRoute
   '/library': typeof LibraryRoute
   '/policy-consistency': typeof PolicyConsistencyRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/architecture': typeof ArchitectureRoute
+  '/audit': typeof AuditRoute
   '/data-protection': typeof DataProtectionRoute
   '/library': typeof LibraryRoute
   '/policy-consistency': typeof PolicyConsistencyRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/architecture'
+    | '/audit'
     | '/data-protection'
     | '/library'
     | '/policy-consistency'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/architecture'
+    | '/audit'
     | '/data-protection'
     | '/library'
     | '/policy-consistency'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/architecture'
+    | '/audit'
     | '/data-protection'
     | '/library'
     | '/policy-consistency'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArchitectureRoute: typeof ArchitectureRoute
+  AuditRoute: typeof AuditRoute
   DataProtectionRoute: typeof DataProtectionRoute
   LibraryRoute: typeof LibraryRoute
   PolicyConsistencyRoute: typeof PolicyConsistencyRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/architecture'
       fullPath: '/architecture'
       preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/data-protection': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArchitectureRoute: ArchitectureRoute,
+  AuditRoute: AuditRoute,
   DataProtectionRoute: DataProtectionRoute,
   LibraryRoute: LibraryRoute,
   PolicyConsistencyRoute: PolicyConsistencyRoute,

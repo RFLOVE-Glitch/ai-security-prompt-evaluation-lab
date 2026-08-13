@@ -14,8 +14,7 @@ const DOCS = [
   {
     path: "README.md",
     title: "Project overview",
-    summary:
-      "What the lab is, what it is not, how to run it, and the synthetic-only disclosure.",
+    summary: "What the lab is, what it is not, how to run it, and the synthetic-only disclosure.",
   },
   {
     path: "docs/architecture.md",
@@ -118,8 +117,7 @@ export const Route = createFileRoute("/docs")({
       { property: "og:title", content: "Docs & Tests" },
       {
         property: "og:description",
-        content:
-          "Where the written methodology lives and exactly what the test suite asserts.",
+        content: "Where the written methodology lives and exactly what the test suite asserts.",
       },
     ],
   }),
@@ -140,10 +138,7 @@ function DocsPage() {
         <SectionTitle title="Documentation" hint="Markdown in the repository" />
         <ul className="space-y-2">
           {DOCS.map((doc) => (
-            <li
-              key={doc.path}
-              className="rounded-md border border-border bg-surface px-3 py-2.5"
-            >
+            <li key={doc.path} className="rounded-md border border-border bg-surface px-3 py-2.5">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-mono text-xs text-primary">{doc.path}</span>
                 <span className="text-sm font-medium">{doc.title}</span>
@@ -161,14 +156,9 @@ function DocsPage() {
         />
         <div className="space-y-3">
           {TEST_GROUPS.map((group) => (
-            <div
-              key={group.name}
-              className="rounded-md border border-border bg-surface p-3"
-            >
+            <div key={group.name} className="rounded-md border border-border bg-surface p-3">
               <div className="flex items-center gap-2">
-                <Chip className="border-primary/40 bg-primary/12 text-primary">
-                  describe
-                </Chip>
+                <Chip className="border-primary/40 bg-primary/12 text-primary">describe</Chip>
                 <span className="font-mono text-sm">{group.name}</span>
               </div>
               <ul className="mt-2 space-y-1">
@@ -186,7 +176,7 @@ function DocsPage() {
       <Panel>
         <SectionTitle title="Local commands" />
         <pre className="overflow-x-auto rounded-md border border-border bg-background/60 p-4 font-mono text-xs leading-relaxed">
-{`bun install
+          {`bun install
 bun run dev          # dashboard on :8080
 bunx vitest run      # unit tests
 bun run lint         # eslint
@@ -201,12 +191,10 @@ bun run build        # production build`}
             No live AI APIs, no real datasets, no operational bypass content.
           </KeyValue>
           <KeyValue label="Portfolio MVP">
-            Built to demonstrate assurance engineering judgement, not to certify any
-            system.
+            Built to demonstrate assurance engineering judgement, not to certify any system.
           </KeyValue>
           <KeyValue label="Not published">
-            This build is intentionally unpublished and not connected to a Git
-            provider.
+            This build is intentionally unpublished and not connected to a Git provider.
           </KeyValue>
         </dl>
       </Panel>

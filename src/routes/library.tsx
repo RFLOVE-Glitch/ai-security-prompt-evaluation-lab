@@ -61,12 +61,12 @@ function LibraryPage() {
       </div>
 
       <Panel>
-        <SectionTitle
-          title="Authoring rules"
-          hint="Applied to every entry in this library"
-        />
+        <SectionTitle title="Authoring rules" hint="Applied to every entry in this library" />
         <ul className="grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
-          <li>· Prompts are labelled <span className="font-mono">[SYNTHETIC]</span> and describe intent only.</li>
+          <li>
+            · Prompts are labelled <span className="font-mono">[SYNTHETIC]</span> and describe
+            intent only.
+          </li>
           <li>· No real names, accounts, tenants, vendors, or credentials.</li>
           <li>· No operational instructions for bypassing a safety control.</li>
           <li>· Every probe states an expected compliant behaviour.</li>
@@ -85,10 +85,7 @@ function LibraryPage() {
             {tests
               .filter((t) => t.category === category)
               .map((test) => (
-                <article
-                  key={test.id}
-                  className="rounded-md border border-border bg-surface p-4"
-                >
+                <article key={test.id} className="rounded-md border border-border bg-surface p-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="font-mono text-xs text-primary">{test.id}</span>
                     <h3 className="text-sm font-semibold">{test.title}</h3>
@@ -102,8 +99,7 @@ function LibraryPage() {
                     {test.syntheticPrompt}
                   </p>
                   <p className="mt-2 text-xs text-muted-foreground">
-                    <span className="text-foreground">Expected:</span>{" "}
-                    {test.expectedBehavior}
+                    <span className="text-foreground">Expected:</span> {test.expectedBehavior}
                   </p>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {test.tags.map((tag) => (

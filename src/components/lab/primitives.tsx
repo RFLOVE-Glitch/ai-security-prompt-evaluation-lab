@@ -58,13 +58,7 @@ export function StatusChip({ status }: { status: ImplementationStatus }) {
   return <Chip className={STATUS_CLASS[status]}>{status}</Chip>;
 }
 
-export function Panel({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function Panel({ children, className }: { children: ReactNode; className?: string }) {
   return <section className={cn("panel p-5", className)}>{children}</section>;
 }
 
@@ -79,24 +73,14 @@ export function PageHeader({
 }) {
   return (
     <header className="space-y-2">
-      <p className="text-xs font-semibold tracking-[0.2em] text-primary uppercase">
-        {eyebrow}
-      </p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-primary uppercase">{eyebrow}</p>
       <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
-      <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-        {description}
-      </p>
+      <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">{description}</p>
     </header>
   );
 }
 
-export function SectionTitle({
-  title,
-  hint,
-}: {
-  title: string;
-  hint?: string;
-}) {
+export function SectionTitle({ title, hint }: { title: string; hint?: string }) {
   return (
     <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
       <h2 className="text-sm font-semibold tracking-[0.14em] uppercase">{title}</h2>
@@ -121,9 +105,7 @@ export function Metric({
       <p className="text-xs tracking-wide text-muted-foreground uppercase">{label}</p>
       <p className="font-mono text-3xl font-semibold text-foreground">
         {value}
-        {unit ? (
-          <span className="ml-1 text-base text-muted-foreground">{unit}</span>
-        ) : null}
+        {unit ? <span className="ml-1 text-base text-muted-foreground">{unit}</span> : null}
       </p>
       {hint ? <p className="text-xs text-muted-foreground">{hint}</p> : null}
     </Panel>
@@ -149,9 +131,7 @@ export function ScoreBar({ score }: { score: number }) {
           style={{ width: `${Math.max(2, Math.min(100, score))}%` }}
         />
       </div>
-      <span className="font-mono text-xs text-muted-foreground">
-        {score.toFixed(1)}
-      </span>
+      <span className="font-mono text-xs text-muted-foreground">{score.toFixed(1)}</span>
     </div>
   );
 }
@@ -164,9 +144,8 @@ export function SyntheticNotice({ className }: { className?: string }) {
         className,
       )}
     >
-      <span className="font-semibold text-primary">Synthetic:</span> everything on
-      this page is fabricated fixture data. No live model was called and no real
-      personal data is present.
+      <span className="font-semibold text-primary">Synthetic:</span> everything on this page is
+      fabricated fixture data. No live model was called and no real personal data is present.
     </p>
   );
 }
@@ -174,9 +153,7 @@ export function SyntheticNotice({ className }: { className?: string }) {
 export function KeyValue({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="grid gap-1 border-b border-border/60 py-2.5 last:border-0 sm:grid-cols-[180px_1fr] sm:gap-4">
-      <dt className="text-xs tracking-wide text-muted-foreground uppercase">
-        {label}
-      </dt>
+      <dt className="text-xs tracking-wide text-muted-foreground uppercase">{label}</dt>
       <dd className="text-sm leading-relaxed text-foreground">{children}</dd>
     </div>
   );

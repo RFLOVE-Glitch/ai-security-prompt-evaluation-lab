@@ -22,14 +22,14 @@ fixtures flow into pure scoring functions, and the routes render the result.
 
 ## Modules
 
-| Module | Responsibility |
-| --- | --- |
-| `src/lib/lab/types.ts` | Domain model: probes, simulated responses, runs, scored results, capability status, audit events. |
-| `src/lib/lab/fixtures.ts` | All synthetic data. The single place fabricated content lives. |
-| `src/lib/lab/scoring.ts` | Pure functions only: no randomness, no clock reads, no I/O. |
-| `src/components/lab/primitives.tsx` | Design-system chips, panels, metrics, score bars, disclosure notice. |
-| `src/components/lab/CategoryPage.tsx` | Shared domain page (probes, outcomes, threats, boundary). |
-| `src/routes/*` | One route per dashboard section, each with its own head metadata. |
+| Module                                | Responsibility                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `src/lib/lab/types.ts`                | Domain model: probes, simulated responses, runs, scored results, capability status, audit events. |
+| `src/lib/lab/fixtures.ts`             | All synthetic data. The single place fabricated content lives.                                    |
+| `src/lib/lab/scoring.ts`              | Pure functions only: no randomness, no clock reads, no I/O.                                       |
+| `src/components/lab/primitives.tsx`   | Design-system chips, panels, metrics, score bars, disclosure notice.                              |
+| `src/components/lab/CategoryPage.tsx` | Shared domain page (probes, outcomes, threats, boundary).                                         |
+| `src/routes/*`                        | One route per dashboard section, each with its own head metadata.                                 |
 
 ## Trust boundaries
 

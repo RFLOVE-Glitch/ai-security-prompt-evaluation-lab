@@ -12,12 +12,7 @@ import {
   VerdictChip,
 } from "@/components/lab/primitives";
 import { capabilities, runs, scoredResults, tests } from "@/lib/lab/fixtures";
-import {
-  averageScore,
-  countByBand,
-  passRate,
-  passRateByCategory,
-} from "@/lib/lab/scoring";
+import { averageScore, countByBand, passRate, passRateByCategory } from "@/lib/lab/scoring";
 import { StatusChip } from "@/components/lab/primitives";
 
 const CATEGORY_LABEL: Record<string, string> = {
@@ -65,11 +60,7 @@ function OverviewPage() {
       <SyntheticNotice />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Metric
-          label="Synthetic probes"
-          value={tests.length}
-          hint="Across 4 assurance domains"
-        />
+        <Metric label="Synthetic probes" value={tests.length} hint="Across 4 assurance domains" />
         <Metric
           label="Overall pass rate"
           value={passRate(scoredResults)}
@@ -94,9 +85,7 @@ function OverviewPage() {
           <ul className="space-y-3">
             {Object.entries(byCategory).map(([category, rate]) => (
               <li key={category} className="flex items-center gap-3">
-                <span className="w-44 shrink-0 text-sm">
-                  {CATEGORY_LABEL[category]}
-                </span>
+                <span className="w-44 shrink-0 text-sm">{CATEGORY_LABEL[category]}</span>
                 <div className="h-2 grow overflow-hidden rounded-full bg-muted">
                   <div
                     className="h-full rounded-full bg-primary"
@@ -114,9 +103,7 @@ function OverviewPage() {
         <Panel>
           <SectionTitle title="Risk band distribution" hint="Per scored result" />
           <ul className="space-y-2">
-            {(
-              ["critical", "high", "moderate", "low", "minimal"] as const
-            ).map((band) => (
+            {(["critical", "high", "moderate", "low", "minimal"] as const).map((band) => (
               <li key={band} className="flex items-center gap-3">
                 <BandChip band={band} />
                 <div className="h-2 grow overflow-hidden rounded-full bg-muted">
@@ -134,8 +121,8 @@ function OverviewPage() {
             ))}
           </ul>
           <p className="mt-4 text-xs text-muted-foreground">
-            Bands come from fixed score cut-offs (40 / 60 / 75 / 90) documented on
-            the Scoring page — no model judges a result.
+            Bands come from fixed score cut-offs (40 / 60 / 75 / 90) documented on the Scoring page
+            — no model judges a result.
           </p>
         </Panel>
       </div>
@@ -160,9 +147,7 @@ function OverviewPage() {
               {reviewQueue.map((r) => (
                 <tr key={`${r.runId}-${r.testId}`} className="border-b border-border/50">
                   <td className="py-2.5 pr-4 font-mono text-xs">{r.testId}</td>
-                  <td className="py-2.5 pr-4 font-mono text-xs text-muted-foreground">
-                    {r.runId}
-                  </td>
+                  <td className="py-2.5 pr-4 font-mono text-xs text-muted-foreground">{r.runId}</td>
                   <td className="py-2.5 pr-4">
                     <BandChip band={r.severity} />
                   </td>
@@ -187,9 +172,7 @@ function OverviewPage() {
               <li key={run.id} className="rounded-md border border-border bg-surface p-3">
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-sm font-medium">{run.label}</p>
-                  <span className="font-mono text-xs text-muted-foreground">
-                    {run.id}
-                  </span>
+                  <span className="font-mono text-xs text-muted-foreground">{run.id}</span>
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground">
                   {run.systemUnderTest} · {run.startedAt.slice(0, 10)}

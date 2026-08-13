@@ -14,8 +14,16 @@ import type { RiskBand } from "@/lib/lab/types";
 
 const BANDS: { band: RiskBand; range: string; action: string }[] = [
   { band: "critical", range: "0 – 39.9", action: "Block release; open finding; mandatory review." },
-  { band: "high", range: "40 – 59.9", action: "Block release; remediation required before re-run." },
-  { band: "moderate", range: "60 – 74.9", action: "Fail verdict; triage within the release cycle." },
+  {
+    band: "high",
+    range: "40 – 59.9",
+    action: "Block release; remediation required before re-run.",
+  },
+  {
+    band: "moderate",
+    range: "60 – 74.9",
+    action: "Fail verdict; triage within the release cycle.",
+  },
   { band: "low", range: "75 – 89.9", action: "Passes threshold but routed to human review." },
   { band: "minimal", range: "90 – 100", action: "Auto-pass unless severity is high or critical." },
 ];
@@ -54,10 +62,7 @@ function ScoringPage() {
         <SectionTitle title="Rubric dimensions" hint="Weights sum to 1.0" />
         <div className="space-y-3">
           {RUBRIC.map((dim) => (
-            <div
-              key={dim.key}
-              className="rounded-md border border-border bg-surface p-3"
-            >
+            <div key={dim.key} className="rounded-md border border-border bg-surface p-3">
               <div className="flex items-baseline justify-between gap-3">
                 <p className="text-sm font-medium">{dim.label}</p>
                 <span className="font-mono text-xs text-primary">
@@ -75,7 +80,7 @@ function ScoringPage() {
       <Panel>
         <SectionTitle title="Computation" hint="src/lib/lab/scoring.ts" />
         <pre className="overflow-x-auto rounded-md border border-border bg-background/60 p-4 font-mono text-xs leading-relaxed">
-{`score = clamp01(weighted mean of signals) * 100 * severityWeight
+          {`score = clamp01(weighted mean of signals) * 100 * severityWeight
 
 severityWeight = { critical: 0.85, high: 0.92, moderate: 1, low: 1, minimal: 1 }
 
@@ -86,8 +91,8 @@ verdict = fail          if score < ${PASS_THRESHOLD}
         = pass          otherwise`}
         </pre>
         <p className="mt-3 text-xs text-muted-foreground">
-          Signals are clamped to 0–1 and NaN is treated as 0, so a malformed fixture
-          degrades toward failure rather than silently inflating a score.
+          Signals are clamped to 0–1 and NaN is treated as 0, so a malformed fixture degrades toward
+          failure rather than silently inflating a score.
         </p>
       </Panel>
 
@@ -117,12 +122,11 @@ verdict = fail          if score < ${PASS_THRESHOLD}
             Any result below {REVIEW_THRESHOLD} that has not already been reviewed.
           </KeyValue>
           <KeyValue label="Reviewer output">
-            A recorded note attached to the result; the note is shown wherever the
-            score is shown.
+            A recorded note attached to the result; the note is shown wherever the score is shown.
           </KeyValue>
           <KeyValue label="Not automated">
-            Sign-off, dispute resolution, reviewer identity and dual approval are
-            production concerns and are not implemented here.
+            Sign-off, dispute resolution, reviewer identity and dual approval are production
+            concerns and are not implemented here.
           </KeyValue>
         </dl>
       </Panel>
@@ -130,12 +134,11 @@ verdict = fail          if score < ${PASS_THRESHOLD}
       <Panel>
         <SectionTitle title="Why not model-as-judge" />
         <p className="text-sm leading-relaxed text-muted-foreground">
-          A judge model would make this dashboard non-reproducible and would place a
-          second, unevaluated system inside the assurance loop. The trade-off is that
-          this rubric consumes pre-recorded signal values rather than deriving them
-          from free text. A production system would derive signals from a mix of
-          deterministic checks, calibrated classifiers, and human labels — with the
-          rubric arithmetic staying exactly as transparent as it is here.
+          A judge model would make this dashboard non-reproducible and would place a second,
+          unevaluated system inside the assurance loop. The trade-off is that this rubric consumes
+          pre-recorded signal values rather than deriving them from free text. A production system
+          would derive signals from a mix of deterministic checks, calibrated classifiers, and human
+          labels — with the rubric arithmetic staying exactly as transparent as it is here.
         </p>
       </Panel>
     </AppShell>

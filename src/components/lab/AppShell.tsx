@@ -59,8 +59,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 activeOptions={{ exact: to === "/" }}
                 className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                 activeProps={{
-                  className:
-                    "bg-sidebar-accent text-sidebar-accent-foreground font-medium",
+                  className: "bg-sidebar-accent text-sidebar-accent-foreground font-medium",
                 }}
               >
                 <Icon className="size-4 shrink-0" aria-hidden />
@@ -73,8 +72,8 @@ export function AppShell({ children }: { children: ReactNode }) {
         <main className="min-w-0 flex-1 px-4 py-8 sm:px-8">
           <div className="mx-auto max-w-6xl space-y-8">{children}</div>
           <footer className="mx-auto mt-16 max-w-6xl border-t border-border pt-5 text-xs text-muted-foreground">
-            Portfolio MVP · defensive AI assurance demonstration · fabricated data
-            throughout · not a security control and not a certification.
+            Portfolio MVP · defensive AI assurance demonstration · fabricated data throughout · not
+            a security control and not a certification.
           </footer>
         </main>
       </div>

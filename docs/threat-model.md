@@ -14,14 +14,14 @@
 
 ## Threats and evaluation responses
 
-| ID | Threat | Asset | Evaluation response |
-| --- | --- | --- | --- |
-| T1 | Untrusted content is interpreted as instruction | Assistant behaviour | Instruction-robustness and tool-safety probes assert pasted documents and tool output are handled as data. |
-| T2 | Sensitive-looking material is reproduced in output | Customer data | Shape-based detector over responses; masked reporting; leakage weighted 0.25 in the rubric. |
-| T3 | Policy answers differ by surface, tone or framing | Regulatory posture | Fixed-question / varied-surface probes plus run-over-run score comparison. |
-| T4 | Unsafe, unscoped or unconfirmed tool invocation | Downstream systems | Confirmation-gate, least-privilege and tool-output-trust probes; restraint scored explicitly. |
-| T5 | Results cannot be reproduced or defended | Assurance credibility | Pure scoring functions, versioned fixtures, boundary unit tests. |
-| T6 | Evaluation artefacts leak data themselves | The lab | Only fabricated data is stored; the detector returns masked values; no credentials exist in the project. |
+| ID  | Threat                                             | Asset                 | Evaluation response                                                                                        |
+| --- | -------------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| T1  | Untrusted content is interpreted as instruction    | Assistant behaviour   | Instruction-robustness and tool-safety probes assert pasted documents and tool output are handled as data. |
+| T2  | Sensitive-looking material is reproduced in output | Customer data         | Shape-based detector over responses; masked reporting; leakage weighted 0.25 in the rubric.                |
+| T3  | Policy answers differ by surface, tone or framing  | Regulatory posture    | Fixed-question / varied-surface probes plus run-over-run score comparison.                                 |
+| T4  | Unsafe, unscoped or unconfirmed tool invocation    | Downstream systems    | Confirmation-gate, least-privilege and tool-output-trust probes; restraint scored explicitly.              |
+| T5  | Results cannot be reproduced or defended           | Assurance credibility | Pure scoring functions, versioned fixtures, boundary unit tests.                                           |
+| T6  | Evaluation artefacts leak data themselves          | The lab               | Only fabricated data is stored; the detector returns masked values; no credentials exist in the project.   |
 
 ## Explicitly out of scope
 

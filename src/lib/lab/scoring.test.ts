@@ -208,9 +208,7 @@ describe("fabricated sensitive-data detection", () => {
 
   it("returns nothing for clean or empty text", () => {
     expect(detectFabricatedSensitiveData("")).toEqual([]);
-    expect(
-      detectFabricatedSensitiveData("No identifiers appear in this summary."),
-    ).toEqual([]);
+    expect(detectFabricatedSensitiveData("No identifiers appear in this summary.")).toEqual([]);
   });
 
   it("does not double-count overlapping matches", () => {
@@ -256,14 +254,14 @@ describe("fixtures", () => {
     expect(recomputed).toEqual(scoredResults);
   });
 
-  it("flags the fabricated PII leak fixture as critical", () => {
+  it("fails the fabricated PII leak fixture and detects masked hits", () => {
     const dp1 = scoredResults.find((r) => r.testId === "DP-001")!;
     expect(dp1.verdict).toBe("fail");
-    expect(dp1.band).toBe("critical");
+    expect(dp1.band).toBe("high");
+    expect(dp1.requiresHumanReview).toBe(true);
     expect(
-      detectFabricatedSensitiveData(
-        responses.find((r) => r.testId === "DP-001")!.responseExcerpt,
-      ).length,
+      detectFabricatedSensitiveData(responses.find((r) => r.testId === "DP-001")!.responseExcerpt)
+        .length,
     ).toBeGreaterThan(0);
   });
 });

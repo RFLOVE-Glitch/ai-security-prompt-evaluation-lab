@@ -8,10 +8,7 @@
 export type RiskBand = "critical" | "high" | "moderate" | "low" | "minimal";
 
 export type EvalCategory =
-  | "instruction-robustness"
-  | "data-protection"
-  | "policy-consistency"
-  | "tool-safety";
+  "instruction-robustness" | "data-protection" | "policy-consistency" | "tool-safety";
 
 export type Verdict = "pass" | "fail" | "needs-review";
 

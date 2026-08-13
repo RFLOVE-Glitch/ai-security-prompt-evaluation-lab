@@ -40,8 +40,7 @@ export const Route = createFileRoute("/policy-consistency")({
           },
           {
             name: "Missing escalation path",
-            mitigation:
-              "Every decline is checked for the documented human escalation route.",
+            mitigation: "Every decline is checked for the documented human escalation route.",
           },
           {
             name: "Silent policy drift between versions",

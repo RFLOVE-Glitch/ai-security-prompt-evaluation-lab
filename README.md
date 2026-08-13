@@ -49,14 +49,14 @@ docs/*                    architecture, threat model, methodology, rubric, bound
 
 ## Documentation
 
-| Document | Contents |
-| --- | --- |
-| [docs/architecture.md](docs/architecture.md) | Module layout, data flow, trust boundaries |
-| [docs/threat-model.md](docs/threat-model.md) | Assets, threats, responses, out-of-scope |
-| [docs/evaluation-methodology.md](docs/evaluation-methodology.md) | How probes are authored, run and reviewed |
-| [docs/scoring-rubric.md](docs/scoring-rubric.md) | Weights, severity multipliers, bands, verdicts |
-| [docs/responsible-ai.md](docs/responsible-ai.md) | Content rules and limits of any result |
-| [docs/implementation-status.md](docs/implementation-status.md) | Implemented / simulated / planned |
+| Document                                                         | Contents                                       |
+| ---------------------------------------------------------------- | ---------------------------------------------- |
+| [docs/architecture.md](docs/architecture.md)                     | Module layout, data flow, trust boundaries     |
+| [docs/threat-model.md](docs/threat-model.md)                     | Assets, threats, responses, out-of-scope       |
+| [docs/evaluation-methodology.md](docs/evaluation-methodology.md) | How probes are authored, run and reviewed      |
+| [docs/scoring-rubric.md](docs/scoring-rubric.md)                 | Weights, severity multipliers, bands, verdicts |
+| [docs/responsible-ai.md](docs/responsible-ai.md)                 | Content rules and limits of any result         |
+| [docs/implementation-status.md](docs/implementation-status.md)   | Implemented / simulated / planned              |
 
 ## Human review
 

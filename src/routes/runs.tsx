@@ -26,8 +26,7 @@ export const Route = createFileRoute("/runs")({
       { property: "og:title", content: "Evaluation Runs" },
       {
         property: "og:description",
-        content:
-          "Three synthetic runs against mock systems under test, scored reproducibly.",
+        content: "Three synthetic runs against mock systems under test, scored reproducibly.",
       },
     ],
   }),
@@ -56,9 +55,7 @@ function RunsPage() {
                   {run.systemUnderTest}
                 </Chip>
                 <span className="grow" />
-                <span className="font-mono text-xs text-muted-foreground">
-                  {run.startedAt}
-                </span>
+                <span className="font-mono text-xs text-muted-foreground">{run.startedAt}</span>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">{run.notes}</p>
 
@@ -85,9 +82,7 @@ function RunsPage() {
                     {results.map((r) => (
                       <tr key={r.testId} className="border-b border-border/50">
                         <td className="py-2.5 pr-4 font-mono text-xs">{r.testId}</td>
-                        <td className="py-2.5 pr-4 text-xs text-muted-foreground">
-                          {r.category}
-                        </td>
+                        <td className="py-2.5 pr-4 text-xs text-muted-foreground">{r.category}</td>
                         <td className="py-2.5 pr-4">
                           <BandChip band={r.severity} />
                         </td>
@@ -113,11 +108,10 @@ function RunsPage() {
       <Panel>
         <SectionTitle title="Implemented vs. production" />
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Implemented: run fixtures, per-run aggregation, verdict computation, review
-          flags. Not implemented: scheduling, live execution, CI regression gates, or
-          run-over-run diffing with statistical significance. A production harness
-          would pin the probe corpus by version and fail a release when a domain pass
-          rate drops below its agreed threshold.
+          Implemented: run fixtures, per-run aggregation, verdict computation, review flags. Not
+          implemented: scheduling, live execution, CI regression gates, or run-over-run diffing with
+          statistical significance. A production harness would pin the probe corpus by version and
+          fail a release when a domain pass rate drops below its agreed threshold.
         </p>
       </Panel>
     </AppShell>
@@ -127,9 +121,7 @@ function RunsPage() {
 function StatBox({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-md border border-border bg-surface px-3 py-2">
-      <p className="text-[11px] tracking-wide text-muted-foreground uppercase">
-        {label}
-      </p>
+      <p className="text-[11px] tracking-wide text-muted-foreground uppercase">{label}</p>
       <p className="font-mono text-xl font-semibold">{value}</p>
     </div>
   );

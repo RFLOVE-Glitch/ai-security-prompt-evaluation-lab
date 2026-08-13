@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArchitectureRouteImport } from './routes/architecture'
+import { Route as AuditRouteImport } from './routes/audit'
+import { Route as DataProtectionRouteImport } from './routes/data-protection'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as PolicyConsistencyRouteImport } from './routes/policy-consistency'
+import { Route as RobustnessRouteImport } from './routes/robustness'
+import { Route as RunsRouteImport } from './routes/runs'
+import { Route as ScoringRouteImport } from './routes/scoring'
+import { Route as ToolSafetyRouteImport } from './routes/tool-safety'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArchitectureRoute = ArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataProtectionRoute = DataProtectionRouteImport.update({
+  id: '/data-protection',
+  path: '/data-protection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolicyConsistencyRoute = PolicyConsistencyRouteImport.update({
+  id: '/policy-consistency',
+  path: '/policy-consistency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobustnessRoute = RobustnessRouteImport.update({
+  id: '/robustness',
+  path: '/robustness',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RunsRoute = RunsRouteImport.update({
+  id: '/runs',
+  path: '/runs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScoringRoute = ScoringRouteImport.update({
+  id: '/scoring',
+  path: '/scoring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolSafetyRoute = ToolSafetyRouteImport.update({
+  id: '/tool-safety',
+  path: '/tool-safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/architecture': typeof ArchitectureRoute
+  '/audit': typeof AuditRoute
+  '/data-protection': typeof DataProtectionRoute
+  '/docs': typeof DocsRoute
+  '/library': typeof LibraryRoute
+  '/policy-consistency': typeof PolicyConsistencyRoute
+  '/robustness': typeof RobustnessRoute
+  '/runs': typeof RunsRoute
+  '/scoring': typeof ScoringRoute
+  '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/architecture': typeof ArchitectureRoute
+  '/audit': typeof AuditRoute
+  '/data-protection': typeof DataProtectionRoute
+  '/docs': typeof DocsRoute
+  '/library': typeof LibraryRoute
+  '/policy-consistency': typeof PolicyConsistencyRoute
+  '/robustness': typeof RobustnessRoute
+  '/runs': typeof RunsRoute
+  '/scoring': typeof ScoringRoute
+  '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/architecture': typeof ArchitectureRoute
+  '/audit': typeof AuditRoute
+  '/data-protection': typeof DataProtectionRoute
+  '/docs': typeof DocsRoute
+  '/library': typeof LibraryRoute
+  '/policy-consistency': typeof PolicyConsistencyRoute
+  '/robustness': typeof RobustnessRoute
+  '/runs': typeof RunsRoute
+  '/scoring': typeof ScoringRoute
+  '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/architecture'
+    | '/audit'
+    | '/data-protection'
+    | '/docs'
+    | '/library'
+    | '/policy-consistency'
+    | '/robustness'
+    | '/runs'
+    | '/scoring'
+    | '/tool-safety'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/architecture'
+    | '/audit'
+    | '/data-protection'
+    | '/docs'
+    | '/library'
+    | '/policy-consistency'
+    | '/robustness'
+    | '/runs'
+    | '/scoring'
+    | '/tool-safety'
+  id:
+    | '__root__'
+    | '/'
+    | '/architecture'
+    | '/audit'
+    | '/data-protection'
+    | '/docs'
+    | '/library'
+    | '/policy-consistency'
+    | '/robustness'
+    | '/runs'
+    | '/scoring'
+    | '/tool-safety'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArchitectureRoute: typeof ArchitectureRoute
+  AuditRoute: typeof AuditRoute
+  DataProtectionRoute: typeof DataProtectionRoute
+  DocsRoute: typeof DocsRoute
+  LibraryRoute: typeof LibraryRoute
+  PolicyConsistencyRoute: typeof PolicyConsistencyRoute
+  RobustnessRoute: typeof RobustnessRoute
+  RunsRoute: typeof RunsRoute
+  ScoringRoute: typeof ScoringRoute
+  ToolSafetyRoute: typeof ToolSafetyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/architecture': {
+      id: '/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-protection': {
+      id: '/data-protection'
+      path: '/data-protection'
+      fullPath: '/data-protection'
+      preLoaderRoute: typeof DataProtectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/policy-consistency': {
+      id: '/policy-consistency'
+      path: '/policy-consistency'
+      fullPath: '/policy-consistency'
+      preLoaderRoute: typeof PolicyConsistencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robustness': {
+      id: '/robustness'
+      path: '/robustness'
+      fullPath: '/robustness'
+      preLoaderRoute: typeof RobustnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/runs': {
+      id: '/runs'
+      path: '/runs'
+      fullPath: '/runs'
+      preLoaderRoute: typeof RunsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scoring': {
+      id: '/scoring'
+      path: '/scoring'
+      fullPath: '/scoring'
+      preLoaderRoute: typeof ScoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tool-safety': {
+      id: '/tool-safety'
+      path: '/tool-safety'
+      fullPath: '/tool-safety'
+      preLoaderRoute: typeof ToolSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArchitectureRoute: ArchitectureRoute,
+  AuditRoute: AuditRoute,
+  DataProtectionRoute: DataProtectionRoute,
+  DocsRoute: DocsRoute,
+  LibraryRoute: LibraryRoute,
+  PolicyConsistencyRoute: PolicyConsistencyRoute,
+  RobustnessRoute: RobustnessRoute,
+  RunsRoute: RunsRoute,
+  ScoringRoute: ScoringRoute,
+  ToolSafetyRoute: ToolSafetyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

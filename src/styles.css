@@ -152,3 +152,6 @@
     );
   background-size: 44px 44px;
 }
+
+/* Risk-band utilities are composed at runtime from band names. */
+@source inline("bg-{critical,high,moderate,low,minimal}");

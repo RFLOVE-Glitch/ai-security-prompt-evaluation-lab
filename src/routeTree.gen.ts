@@ -15,6 +15,7 @@ import { Route as LibraryRouteImport } from './routes/library'
 import { Route as PolicyConsistencyRouteImport } from './routes/policy-consistency'
 import { Route as RobustnessRouteImport } from './routes/robustness'
 import { Route as RunsRouteImport } from './routes/runs'
+import { Route as ScoringRouteImport } from './routes/scoring'
 import { Route as ToolSafetyRouteImport } from './routes/tool-safety'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const RunsRoute = RunsRouteImport.update({
   path: '/runs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScoringRoute = ScoringRouteImport.update({
+  id: '/scoring',
+  path: '/scoring',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolSafetyRoute = ToolSafetyRouteImport.update({
   id: '/tool-safety',
   path: '/tool-safety',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/policy-consistency': typeof PolicyConsistencyRoute
   '/robustness': typeof RobustnessRoute
   '/runs': typeof RunsRoute
+  '/scoring': typeof ScoringRoute
   '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/policy-consistency': typeof PolicyConsistencyRoute
   '/robustness': typeof RobustnessRoute
   '/runs': typeof RunsRoute
+  '/scoring': typeof ScoringRoute
   '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/policy-consistency': typeof PolicyConsistencyRoute
   '/robustness': typeof RobustnessRoute
   '/runs': typeof RunsRoute
+  '/scoring': typeof ScoringRoute
   '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/policy-consistency'
     | '/robustness'
     | '/runs'
+    | '/scoring'
     | '/tool-safety'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/policy-consistency'
     | '/robustness'
     | '/runs'
+    | '/scoring'
     | '/tool-safety'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/policy-consistency'
     | '/robustness'
     | '/runs'
+    | '/scoring'
     | '/tool-safety'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   PolicyConsistencyRoute: typeof PolicyConsistencyRoute
   RobustnessRoute: typeof RobustnessRoute
   RunsRoute: typeof RunsRoute
+  ScoringRoute: typeof ScoringRoute
   ToolSafetyRoute: typeof ToolSafetyRoute
 }
 
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RunsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scoring': {
+      id: '/scoring'
+      path: '/scoring'
+      fullPath: '/scoring'
+      preLoaderRoute: typeof ScoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tool-safety': {
       id: '/tool-safety'
       path: '/tool-safety'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   PolicyConsistencyRoute: PolicyConsistencyRoute,
   RobustnessRoute: RobustnessRoute,
   RunsRoute: RunsRoute,
+  ScoringRoute: ScoringRoute,
   ToolSafetyRoute: ToolSafetyRoute,
 }
 export const routeTree = rootRouteImport

@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DataProtectionRouteImport } from './routes/data-protection'
+import { Route as PolicyConsistencyRouteImport } from './routes/policy-consistency'
+import { Route as RobustnessRouteImport } from './routes/robustness'
+import { Route as ToolSafetyRouteImport } from './routes/tool-safety'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataProtectionRoute = DataProtectionRouteImport.update({
+  id: '/data-protection',
+  path: '/data-protection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolicyConsistencyRoute = PolicyConsistencyRouteImport.update({
+  id: '/policy-consistency',
+  path: '/policy-consistency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobustnessRoute = RobustnessRouteImport.update({
+  id: '/robustness',
+  path: '/robustness',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolSafetyRoute = ToolSafetyRouteImport.update({
+  id: '/tool-safety',
+  path: '/tool-safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/data-protection': typeof DataProtectionRoute
+  '/policy-consistency': typeof PolicyConsistencyRoute
+  '/robustness': typeof RobustnessRoute
+  '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/data-protection': typeof DataProtectionRoute
+  '/policy-consistency': typeof PolicyConsistencyRoute
+  '/robustness': typeof RobustnessRoute
+  '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/data-protection': typeof DataProtectionRoute
+  '/policy-consistency': typeof PolicyConsistencyRoute
+  '/robustness': typeof RobustnessRoute
+  '/tool-safety': typeof ToolSafetyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/data-protection'
+    | '/policy-consistency'
+    | '/robustness'
+    | '/tool-safety'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/data-protection'
+    | '/policy-consistency'
+    | '/robustness'
+    | '/tool-safety'
+  id:
+    | '__root__'
+    | '/'
+    | '/data-protection'
+    | '/policy-consistency'
+    | '/robustness'
+    | '/tool-safety'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DataProtectionRoute: typeof DataProtectionRoute
+  PolicyConsistencyRoute: typeof PolicyConsistencyRoute
+  RobustnessRoute: typeof RobustnessRoute
+  ToolSafetyRoute: typeof ToolSafetyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data-protection': {
+      id: '/data-protection'
+      path: '/data-protection'
+      fullPath: '/data-protection'
+      preLoaderRoute: typeof DataProtectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/policy-consistency': {
+      id: '/policy-consistency'
+      path: '/policy-consistency'
+      fullPath: '/policy-consistency'
+      preLoaderRoute: typeof PolicyConsistencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robustness': {
+      id: '/robustness'
+      path: '/robustness'
+      fullPath: '/robustness'
+      preLoaderRoute: typeof RobustnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tool-safety': {
+      id: '/tool-safety'
+      path: '/tool-safety'
+      fullPath: '/tool-safety'
+      preLoaderRoute: typeof ToolSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DataProtectionRoute: DataProtectionRoute,
+  PolicyConsistencyRoute: PolicyConsistencyRoute,
+  RobustnessRoute: RobustnessRoute,
+  ToolSafetyRoute: ToolSafetyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
